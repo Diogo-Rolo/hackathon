@@ -15,7 +15,13 @@ public class CustomerMockDao implements CustomerDao {
 
     @Override
     public Customer save(Customer customer) {
-        mockData.addCustomer(customer);
-        return customer;
+        Customer toReturn = mockData.addCustomer(customer);
+        return toReturn;
+    }
+
+    @Override
+    public Customer update(Customer customer) {
+        Customer toReturn = mockData.updateCustomer(customer);
+        return toReturn;
     }
 }

@@ -5,4 +5,5 @@ import org.academiadecodigo.model.Customer;
 public interface CustomerDao {
     Customer getById();
     Customer save(Customer customer);
+    Customer update(Customer customer);
 }

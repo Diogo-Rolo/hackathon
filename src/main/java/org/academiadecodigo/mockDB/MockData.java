@@ -21,6 +21,12 @@ public class MockData {
     private Map<Integer, CulturalChallenge> culturalChallengeMap = new HashMap<>();
 
     public Customer addCustomer(Customer customer){
+        customer.setId(customerMap.keySet().size()+1);
+        customerMap.put(customer.getId(), customer);
+        return customer;
+    }
+
+    public Customer updateCustomer(Customer customer){
         customerMap.put(customer.getId(), customer);
         return customer;
     }
