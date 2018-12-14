@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <thymeleaf th:replace="header :: header"/>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -9,19 +8,22 @@
 </head>
 <body>
 <div class="container" th:object="${challenge}">
-    <h2>Customer List</h2>
     <table class="table">
         <thead class="thead-dark block">
         <tr>
-            <th>Challenge</th>
-            <td th:text="${'Po Caralho'}"></td>
-            <th th:text="${'CAi po caralho'}"></th>
-            <th>Show</th>
-            <th>Delete</th>
-
+            <th th:text="${challenge.name}"></th>
         </tr>
         </thead>
-
+        <th scope="row">
+            <tr>
+                <th th:text="${challenge.description}"></th>
+            </tr>
+                <th><iframe width="560" height="315" th:src="${challenge.link}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></th></th>
+        </th>
     </table>
+    <div class="row">
+        <a th:text="Challenge+' '+Completed" class="btn btn-success" th:href="@{'/customer/' + ${challenge}}"></a>
+        <a th:text="Back" class="btn btn-primary" th:href="@{'/delete/' + ${challenge}}"></a>
+    </div>
 </div>
 </body>

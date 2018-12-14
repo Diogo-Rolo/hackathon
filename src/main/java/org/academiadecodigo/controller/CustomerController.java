@@ -15,7 +15,6 @@ public class CustomerController  {
     @RequestMapping(method = RequestMethod.GET, value = "/addcustomer")
     public String addCustomer(Model model) {
         model.addAttribute("customer", new Customer());
-        System.out.println("hssdghaihgsdak");
         return "clientform";
 
     }
@@ -40,20 +39,20 @@ public class CustomerController  {
 
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/login")
+    @RequestMapping(method = RequestMethod.GET, value = "/login")
     public String addNameAndPassword(@ModelAttribute Customer customerDTO) {
 
         for (Customer customer : customerService.getAllCustomers()){
 
             if(customerDTO.getEmail() == customer.getEmail() && customerDTO.getPassword() == customer.getPassword()){
 
-                return "customer/"+customer.getId();
+                return "redirect:customer/" + customer.getId();
 
             }
 
         }
 
-        return "login";
+        return "www.google.com";
 
     }
 
@@ -75,6 +74,32 @@ public class CustomerController  {
         }
         model.addAttribute("challenge", customer.getHealthyChallenge());
         return "viewhealth";
+
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = {"/cultural/{id}"})
+    public String cultural(Model model, @PathVariable Integer id) {
+        Customer customer = new Customer();
+        for (Customer cust: customerService.getAllCustomers()){
+            if (cust.getId() == id) {
+                customer = cust;
+            }
+        }
+        model.addAttribute("challenge", customer.getCulturalChallenge());
+        return "viewcultural";
+
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = {"/social/{id}"})
+    public String social(Model model, @PathVariable Integer id) {
+        Customer customer = new Customer();
+        for (Customer cust: customerService.getAllCustomers()){
+            if (cust.getId() == id) {
+                customer = cust;
+            }
+        }
+        model.addAttribute("challenge", customer.getSocialChallenge());
+        return "viewsocial";
 
     }
 
