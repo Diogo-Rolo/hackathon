@@ -52,7 +52,7 @@ public class CustomerController  {
 
         }
 
-        return "www.google.com";
+        return "redirect:customer/1";
 
     }
 

@@ -86,13 +86,13 @@ public class MockData {
 
         healthyChallenge2.setName("Healthy Challenge #2");
         healthyChallenge2.setDescription("");
-        healthyChallenge2.setLink("https://www.youtube.com/embed/NNQVM35goK8";
+        healthyChallenge2.setLink("https://www.youtube.com/embed/NNQVM35goK8");
         healthyChallengeMap.put(2,healthyChallenge2);
     }
 
     public void populateSocialChallenge() {
         socialChallenge1.setName("Social Challenge #1");
-        socialChallenge1.setDescription("Schedule a coffee with your friends.");
+        socialChallenge1.setDescription("Schedule to have coffee with your friends.");
         socialChallengeMap.put(1,socialChallenge1);
 
         socialChallenge2.setName("Social Challenge #2");
