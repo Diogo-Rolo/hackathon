@@ -5,10 +5,13 @@ import org.academiadecodigo.mockDB.MockData;
 import org.academiadecodigo.model.CulturalChallenge;
 import org.academiadecodigo.model.Customer;
 import org.academiadecodigo.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class CustomerServiceMock implements CustomerService {
     CustomerDao customerDao;
     MockData mockData = MockData.getInstance();
@@ -38,6 +41,7 @@ public class CustomerServiceMock implements CustomerService {
         return customerDao;
     }
 
+    @Autowired
     public void setCustomerDao(CustomerDao customerDao) {
         this.customerDao = customerDao;
     }

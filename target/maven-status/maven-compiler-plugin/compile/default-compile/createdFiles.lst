@@ -1,9 +1,9 @@
 org/academiadecodigo/service/mockService/CustomerServiceMock.class
 org/academiadecodigo/mockDB/MockData.class
-org/academiadecodigo/das.class
 org/academiadecodigo/dao/CustomerDao.class
 org/academiadecodigo/controller/CustomerController.class
 org/academiadecodigo/model/Customer.class
 org/academiadecodigo/dao/mockDaos/CustomerMockDao.class
 org/academiadecodigo/model/CulturalChallenge.class
+org/academiadecodigo/Config.class
 org/academiadecodigo/service/CustomerService.class

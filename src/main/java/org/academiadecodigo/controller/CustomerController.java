@@ -1,42 +1,53 @@
 package org.academiadecodigo.controller;
 
-
 import org.academiadecodigo.model.Customer;
 import org.academiadecodigo.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
 public class CustomerController  {
 
     private CustomerService customerService;
-    private List<Customer> customerList;
-/*
-    @RequestMapping(method = RequestMethod.GET, path = "/addcustomer")
-    public String addCustomer() {
 
+    @RequestMapping(method = RequestMethod.GET, value = "/addcustomer")
+    public String addCustomer(Model model) {
+        model.addAttribute("customer", new Customer());
+        System.out.println("hssdghaihgsdak");
         return "clientform";
 
-    }*/
+    }
 
-    @RequestMapping(method = RequestMethod.POST, path = "/addcustomer")
+    @RequestMapping(method = RequestMethod.POST, value = "/addcustomer")
     public String addCustomer(Customer customer) {
-        customerService.createCustomer(customer);
+        Customer savedCustomer = customerService.createCustomer(customer);
+        return "redirect:customer/" + savedCustomer.getId();
+
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/customer/{id}")
+    public String addCustomer(Model model, @PathVariable Integer id) {
+        Customer customer = new Customer();
+        for (Customer cust: customerService.getAllCustomers()){
+            if (cust.getId() == id) {
+                customer = cust;
+            }
+        }
+        model.addAttribute("customer", customer);
         return "main";
 
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = "/login")
-    public String addNameAndPassword(String email, String password) {
-        customerList = customerService.getAllCustomers();
+    @RequestMapping(method = RequestMethod.POST, value = "/login")
+    public String addNameAndPassword(@ModelAttribute Customer customerDTO) {
 
-        for (Customer customer : customerList){
+        for (Customer customer : customerService.getAllCustomers()){
 
-            if(email == customer.getEmail() && password == customer.getPassword()){
+            if(customerDTO.getEmail() == customer.getEmail() && customerDTO.getPassword() == customer.getPassword()){
 
                 return "customer/"+customer.getId();
 
@@ -44,14 +55,15 @@ public class CustomerController  {
 
         }
 
-        return "/login";
+        return "login";
 
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/")
-    public String addCustomer() {
+    @RequestMapping(method = RequestMethod.GET, value = {"/", ""})
+    public String firstPage(Model model) {
 
-        return "view/index.html";
+        model.addAttribute("customer", new Customer());
+        return "index";
 
     }
 

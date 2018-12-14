@@ -1,11 +1,8 @@
 package org.academiadecodigo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
-    @Entity
-    @Table(name = "customer")
     public class Customer {
+
 
         private Integer id;
         private String firstName;
