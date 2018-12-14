@@ -52,7 +52,7 @@ public class CustomerController  {
 
         }
 
-        return "redirect:/health/1";
+        return "redirect:/";
 
     }
 
