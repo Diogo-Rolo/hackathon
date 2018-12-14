@@ -9,5 +9,8 @@
         <module name="dontstop" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dontstop" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
