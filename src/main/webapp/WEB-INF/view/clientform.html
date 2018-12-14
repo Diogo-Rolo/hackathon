@@ -5,59 +5,107 @@
     <title>APP</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+    body {
+        background-color: rgba(204, 159, 202, 0.52);
+        background-image: url("../../backgroundlogin.jpg");
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .back{
+        border-color: #a1d3ff;
+        margin-top: 20px;
+        width: 100px;
+    }
+    .box {
+        margin-top: 30px;
+        margin: auto;
+        border-color: #a1d3ff transparent transparent transparent;
+        background-color: #fff;
+        border-width: 4px 0 4px 0;
+        border-style: solid;
+        font-size: 12px;
+        border-radius: 0 0 4px 4px;
+        box-sizing: border-box;
+    }
+
+    .imageecstasy{
+        width: fit-content;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    label{
+        display: inline-block;
+        margin-bottom: .5rem;
+        margin-top: 5px;
+        font-family: inherit;
+        font-size: 15px;
+    }
+
+
+</style>
+
 </head>
 <body>
 
+    <div class="container">
 
-
-<div class="container">
-    <div class="row">
         <div class="row">
-            <form th:object="${customer}" th:action="@{/addcustomer}" method="post">
-                <div class="form-row">
+            <div class="col-lg-6 box">
+                <form th:object="${customer}" th:action="@{/addcustomer}" method="post">
+                    <label>Create your account</label>
+                    <div class="form-row">
 
-                    <div class="form-group col">
-                        <label>First Name</label>
-                        <input type="text" th:field="*{firstName}" class="form-control" placeholder="Fist Name">
-                        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name
-                            needed<br></span>
+                        <div class="form-group col">
+                            <label>First Name</label>
+                            <input type="text" th:field="*{firstName}" class="form-control" placeholder="Fist Name">
+                            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name
+                                needed<br></span>
+                        </div>
+
+                        <div class="form-group col">
+                            <label>Last Name</label>
+                            <input type="text" th:field="*{lastName}" class="form-control" placeholder="Last Name">
+                            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+                        </div>
+
                     </div>
 
-                    <div class="form-group col">
-                        <label>Last Name</label>
-                        <input type="text" th:field="*{lastName}" class="form-control" placeholder="Last Name">
-                        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" th:field="*{email}" class="form-control" id="inputEmail4" placeholder="Email">
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
                     </div>
 
+                    <div class="form-group">
+
+                        <label>Phone</label>
+                        <input type="tel" th:field="*{phone}" class="form-control" placeholder="Phone">
+                        <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Password</label>
+                        <input type="password" th:field="*{password}" class="form-control" placeholder="Password">
+                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                    </div>
+
+
+                    <input type="submit" class="btn btn-primary btn-block" th:href="@{'/addcustomer'}"/>
+
+                </form>
+                <div class="imageecstasy">
+                <img src="backgroundlogin.jpg"/>
+                    <a th:text="Back" class="btn btn-block back" th:href="@{'/'}">Back</a>
                 </div>
-
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" th:field="*{email}" class="form-control" id="inputEmail4" placeholder="Email">
-                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
-                </div>
-
-                <div class="form-group">
-
-                    <label>Phone</label>
-                    <input type="tel" th:field="*{phone}" class="form-control" placeholder="Phone">
-                    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
-                </div>
-
-                <div class="form-group">
-
-                    <label>Password</label>
-                    <input type="password" th:field="*{password}" class="form-control" placeholder="Password">
-                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
-                </div>
-
-
-                <input type="submit" class="btn btn-success btn-lg btn-block" th:href="@{'/addcustomer'}"/>
-                <a th:text="Back" class="btn btn-primary btn-lg btn-block" th:href="@{'/'}"><span style="color: white">Back</span></a>
-            </form>
+            </div>
         </div>
     </div>
-</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
