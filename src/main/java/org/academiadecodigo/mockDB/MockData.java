@@ -65,6 +65,10 @@ public class MockData {
         return culturalChallengeMap.get(id);
     }
 
+    public HealthyChallenge getHealthyChallenge(Integer id){
+        return healthyChallengeMap.get(id);
+    }
+
 
     public void populateCulturalChallenge() {
         culturalChallenge1.setName("Cultural Challenge #1");
@@ -85,8 +89,8 @@ public class MockData {
         healthyChallengeMap.put(1,healthyChallenge1);
 
         healthyChallenge2.setName("Healthy Challenge #2");
-        healthyChallenge2.setDescription("");
-        healthyChallenge2.setLink("https://www.youtube.com/embed/NNQVM35goK8";
+        healthyChallenge2.setDescription("Cook a nice chicken salad for yourself for a change!");
+        healthyChallenge2.setLink("https://www.youtube.com/embed/NNQVM35goK8");
         healthyChallengeMap.put(2,healthyChallenge2);
     }
 

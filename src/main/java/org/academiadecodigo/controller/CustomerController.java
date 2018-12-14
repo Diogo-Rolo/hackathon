@@ -51,9 +51,7 @@ public class CustomerController  {
             }
 
         }
-
         return "www.google.com";
-
     }
 
     @RequestMapping(method = RequestMethod.GET, value = {"/", ""})
@@ -66,7 +64,7 @@ public class CustomerController  {
 
     @RequestMapping(method = RequestMethod.GET, value = {"/health/{id}"})
     public String health(Model model, @PathVariable Integer id) {
-        Customer customer = new Customer();
+        Customer customer = null;
         for (Customer cust: customerService.getAllCustomers()){
             if (cust.getId() == id) {
                 customer = cust;
@@ -75,6 +73,13 @@ public class CustomerController  {
         model.addAttribute("challenge", customer.getHealthyChallenge());
         return "viewhealth";
 
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = {"health/{id}/next"})
+    public String healthNext(Model model, @PathVariable Integer id){
+        Customer customer = customerService.getById(id);
+        customerService.nextHealthyChallenge(customer);
+        return "redirect:/health/{id}";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = {"/cultural/{id}"})

@@ -4,6 +4,7 @@ import org.academiadecodigo.dao.CustomerDao;
 import org.academiadecodigo.mockDB.MockData;
 import org.academiadecodigo.model.CulturalChallenge;
 import org.academiadecodigo.model.Customer;
+import org.academiadecodigo.model.HealthyChallenge;
 import org.academiadecodigo.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,11 +22,22 @@ public class CustomerServiceMock implements CustomerService {
         return customerDao.save(customer);
     }
 
+    @Override
+    public Customer getById(Integer id) {
+        return mockData.getCustomerMap().get(id);
+    }
 
     @Override
     public Customer nextCulturalChallenge(Customer customer) {
         CulturalChallenge challenge = mockData.getCulturalChallenge((customer.getCulturalChallenge().getId())+1);
         customer.setCulturalChallenge(challenge);
+        return customer;
+    }
+
+    @Override
+    public Customer nextHealthyChallenge(Customer customer) {
+        HealthyChallenge challenge = mockData.getHealthyChallenge(2);
+        customer.setHealthyChallenge(challenge);
         return customer;
     }
 
