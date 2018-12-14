@@ -12,13 +12,13 @@
         <h3 th:text="${customer.firstName} + ' ' + ${customer.lastName}"></h3>
     </div>
     <div class="row">
-        <button th:href="@{'/health/' + ${customer.id}}" type="button" class="btn btn-success btn-block">Health</button>
+        <a th:href="@{'/health/' + ${customer.id}}" class="btn btn-success btn-block">Health</a>
     </div>
     <div class="row">
-        <button type="button" class="btn btn-primary btn-block">Cultural</button>
+        <a th:href="@{'/cultural/' + ${customer.id}}" class="btn btn-primary btn-block">Cultural</a>
     </div>
     <div class="row">
-        <button type="button" class="btn btn-warning block btn-block">Social</button>
+        <a th:href="@{'/social/' + ${customer.id}}" class="btn btn-warning block btn-block">Social</a>
     </div>
 </div>
 </body>

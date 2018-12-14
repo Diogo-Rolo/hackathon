@@ -14,6 +14,13 @@ public class MockData {
         populateSocialChallenge();
         populateHealthyChallenge();
         populateCulturalChallenge();
+        Customer customer = new Customer();
+        customer.setFirstName("Frédi");
+        customer.setLastName("Mércure");
+        customer.setEmail("fredinho@gmai.com");
+        customer.setPassword("123");
+        customer.setPhone("919919919");
+        addCustomer(customer);
     }
 
     private static MockData ourInstance = new MockData();
@@ -62,24 +69,24 @@ public class MockData {
     public void populateCulturalChallenge() {
         culturalChallenge1.setName("Cultural Challenge #1");
         culturalChallenge1.setDescription("Bohemian Rhapsody");
-        culturalChallenge1.setLink("http://cinemas.nos.pt/Filmes/Pages/bohemian-rhapsody.aspx");
+        culturalChallenge1.setLink("https://www.youtube.com/embed/mP0VHJYFOAU");
         culturalChallengeMap.put(1,culturalChallenge1);
 
         culturalChallenge2.setName("Cultural Challenge #2");
         culturalChallenge2.setDescription("Fado na Baixa");
-        culturalChallenge2.setLink("https://www.bol.pt/Comprar/Bilhetes/67415-meu_unico_fado-fado_na_baixa/");
+        culturalChallenge2.setLink("https://www.youtube.com/embed/WIleD7RVD1I");
         culturalChallengeMap.put(2,culturalChallenge2);
     }
 
     public void populateHealthyChallenge() {
         healthyChallenge1.setName("Healthy Challenge #1");
         healthyChallenge1.setDescription("30 Minute Power Yoga Class");
-        healthyChallenge1.setLink("https://www.youtube.com/watch?v=qy_oIKf1ByM");
+        healthyChallenge1.setLink("https://www.youtube.com/embed/qy_oIKf1ByM");
         healthyChallengeMap.put(1,healthyChallenge1);
 
         healthyChallenge2.setName("Healthy Challenge #2");
         healthyChallenge2.setDescription("");
-        healthyChallenge2.setLink("https://www.youtube.com/watch?v=NNQVM35goK8&index=4&list=RDQMtuhzHNwB5lc");
+        healthyChallenge2.setLink("https://www.youtube.com/embed/NNQVM35goK8";
         healthyChallengeMap.put(2,healthyChallenge2);
     }
 
