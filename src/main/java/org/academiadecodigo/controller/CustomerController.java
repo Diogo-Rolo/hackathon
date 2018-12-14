@@ -58,7 +58,12 @@ public class CustomerController  {
 
     }
 
+    @RequestMapping(method = RequestMethod.GET, path = "/")
+    public String addCustomer() {
 
+        return "index";
+
+    }
 
 
 }
