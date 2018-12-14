@@ -15,24 +15,19 @@ public class CustomerController  {
 
     private CustomerService customerService;
     private List<Customer> customerList;
-
+/*
     @RequestMapping(method = RequestMethod.GET, path = "/addcustomer")
     public String addCustomer() {
 
         return "clientform";
 
-    }
+    }*/
 
     @RequestMapping(method = RequestMethod.POST, path = "/addcustomer")
     public String addCustomer(Customer customer) {
         customerService.createCustomer(customer);
         return "main";
 
-    }
-
-    @Autowired
-    public void setCustomerService(CustomerService customerService) {
-        this.customerService = customerService;
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "/login")
@@ -56,9 +51,14 @@ public class CustomerController  {
     @RequestMapping(method = RequestMethod.GET, path = "/")
     public String addCustomer() {
 
-        return "index";
+        return "view/index.html";
 
     }
 
+
+    @Autowired
+    public void setCustomerService(CustomerService customerService) {
+        this.customerService = customerService;
+    }
 
 }
