@@ -44,7 +44,7 @@ public class CustomerController  {
 
         for (Customer customer : customerService.getAllCustomers()){
 
-            if(customerDTO.getFirstName().equals(customer.getFirstName()) && customerDTO.getPassword().equals(customer.getPassword())){
+            if(customerDTO.getEmail().equals(customer.getEmail()) && customerDTO.getPassword().equals(customer.getPassword())){
 
                 return "redirect:customer/" + customer.getId();
 
