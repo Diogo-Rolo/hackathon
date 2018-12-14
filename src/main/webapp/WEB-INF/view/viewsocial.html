@@ -3,10 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <style>
-
-    </style>
     <title>APP</title>
 </head>
 <body>
@@ -25,7 +21,7 @@
         </th>
     </table>
     <div class="row">
-        <a th:text="Challenge+' '+Completed" class="btn btn-success" th:href="@{'/customer/' + ${challenge}}"></a>
+        <a th:text="Challenge+' '+Completed" class="btn btn-success" th:href="@{'1/next'}"></a>
         <a th:text="Back" class="btn btn-primary" th:href="@{'/customer/1'}"></a>
     </div>
 </div>

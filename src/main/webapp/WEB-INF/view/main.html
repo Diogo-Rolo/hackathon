@@ -6,7 +6,9 @@
 
     <title>APP</title>
 </head>
-<body><h1>Ola</h1>
+<body>
+<h1>Welcome!</h1>
+<h3>Check out the challenges you're working on right now!</h3>
 <div class="container" th:object="${customer}">
     <div class="row">
         <h3 th:text="${customer.firstName} + ' ' + ${customer.lastName}"></h3>
