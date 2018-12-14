@@ -12,7 +12,7 @@ import javax.persistence.Table;
         private String lastName;
         private String email;
         private String phone;
-        private Integer password;
+        private String password;
         private CulturalChallenge culturalChallenge;
 
         public String getFirstName() {
@@ -47,11 +47,11 @@ import javax.persistence.Table;
             this.phone = phone;
         }
 
-        public Integer getPassword() {
+        public String getPassword() {
             return password;
         }
 
-        public void setPassword(Integer password) {
+        public void setPassword(String password) {
             this.password = password;
         }
 
