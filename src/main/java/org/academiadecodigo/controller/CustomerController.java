@@ -7,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 public class CustomerController  {
 
@@ -67,6 +65,18 @@ public class CustomerController  {
 
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = {"/health/{id}"})
+    public String health(Model model, @PathVariable Integer id) {
+        Customer customer = new Customer();
+        for (Customer cust: customerService.getAllCustomers()){
+            if (cust.getId() == id) {
+                customer = cust;
+            }
+        }
+        model.addAttribute("challenge", customer.getHealthChallenge());
+        return "viewhealth";
+
+    }
 
     @Autowired
     public void setCustomerService(CustomerService customerService) {
