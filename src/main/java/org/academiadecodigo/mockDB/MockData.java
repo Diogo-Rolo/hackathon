@@ -9,6 +9,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MockData {
+
+    public MockData() {
+        populateSocialChallenge();
+        populateHealthyChallenge();
+        populateCulturalChallenge();
+    }
+
     private static MockData ourInstance = new MockData();
     CulturalChallenge culturalChallenge1 = new CulturalChallenge();
     CulturalChallenge culturalChallenge2 = new CulturalChallenge();
@@ -32,6 +39,11 @@ public class MockData {
     private Map<Integer, SocialChallenge> socialChallengeMap = new HashMap<>();
 
     public Customer addCustomer(Customer customer){
+        //since this is a new customer we're giving him challenges here
+        customer.setCulturalChallenge(culturalChallengeMap.get(1));
+        customer.setHealthyChallenge(healthyChallengeMap.get(1));
+        customer.setSocialChallenge(socialChallengeMap.get(1));
+
         customer.setId(customerMap.keySet().size()+1);
         customerMap.put(customer.getId(), customer);
         return customer;
@@ -59,7 +71,7 @@ public class MockData {
         culturalChallengeMap.put(2,culturalChallenge2);
     }
 
-    public void populateHealthyChellenge() {
+    public void populateHealthyChallenge() {
         healthyChallenge1.setName("Healthy Challenge #1");
         healthyChallenge1.setDescription("30 Minute Power Yoga Class");
         healthyChallenge1.setLink("https://www.youtube.com/watch?v=qy_oIKf1ByM");
@@ -71,7 +83,7 @@ public class MockData {
         healthyChallengeMap.put(2,healthyChallenge2);
     }
 
-    public void populateSocialChallenge1() {
+    public void populateSocialChallenge() {
         socialChallenge1.setName("Social Challenge #1");
         socialChallenge1.setDescription("Schedule a coffee with your friends.");
         socialChallengeMap.put(1,socialChallenge1);

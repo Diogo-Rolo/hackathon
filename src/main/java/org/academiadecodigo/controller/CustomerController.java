@@ -73,7 +73,7 @@ public class CustomerController  {
                 customer = cust;
             }
         }
-        model.addAttribute("challenge", customer.getHealthChallenge());
+        model.addAttribute("challenge", customer.getHealthyChallenge());
         return "viewhealth";
 
     }

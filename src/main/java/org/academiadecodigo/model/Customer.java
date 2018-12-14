@@ -11,6 +11,8 @@ package org.academiadecodigo.model;
         private String phone;
         private String password;
         private CulturalChallenge culturalChallenge;
+        private SocialChallenge socialChallenge;
+        private HealthyChallenge healthyChallenge;
 
         public String getFirstName() {
             return firstName;
@@ -66,5 +68,21 @@ package org.academiadecodigo.model;
 
         public void setCulturalChallenge(CulturalChallenge culturalChallenge) {
             this.culturalChallenge = culturalChallenge;
+        }
+
+        public SocialChallenge getSocialChallenge() {
+            return socialChallenge;
+        }
+
+        public void setSocialChallenge(SocialChallenge socialChallenge) {
+            this.socialChallenge = socialChallenge;
+        }
+
+        public HealthyChallenge getHealthyChallenge() {
+            return healthyChallenge;
+        }
+
+        public void setHealthyChallenge(HealthyChallenge healthyChallenge) {
+            this.healthyChallenge = healthyChallenge;
         }
     }
