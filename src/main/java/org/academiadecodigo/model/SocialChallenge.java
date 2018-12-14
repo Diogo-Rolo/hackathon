@@ -1,11 +1,11 @@
 package org.academiadecodigo.model;
 
-public class CulturalChallenge {
+
+public class SocialChallenge {
     private Integer id;
     private String name;
     private String description;
     private String link;
-
 
     public Integer getId() {
         return id;
