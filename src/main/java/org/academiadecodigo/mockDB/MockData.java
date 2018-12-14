@@ -17,7 +17,7 @@ public class MockData {
         Customer customer = new Customer();
         customer.setFirstName("Frédi");
         customer.setLastName("Mércure");
-        customer.setEmail("fredinho@gmai.com");
+        customer.setEmail("fredinho@gmail.com");
         customer.setPassword("123");
         customer.setPhone("919919919");
         addCustomer(customer);

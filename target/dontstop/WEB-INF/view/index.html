@@ -11,10 +11,10 @@
         <div class="row align-self-center">
             <div class="col-3"></div>
             <div class="col-6 login-block">
-                    <form th:object="${customer}" method="get">
+                    <form th:object="${customer}" th:action="@{'/login'}" method="get">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" th:field="*{email}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="text" th:field="*{firstName}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter First Name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>

@@ -40,11 +40,11 @@ public class CustomerController  {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/login")
-    public String addNameAndPassword(@ModelAttribute Customer customerDTO) {
+    public String addNameAndPassword(@ModelAttribute("customer") Customer customerDTO) {
 
         for (Customer customer : customerService.getAllCustomers()){
 
-            if(customerDTO.getEmail() == customer.getEmail() && customerDTO.getPassword() == customer.getPassword()){
+            if(customerDTO.getFirstName().equals(customer.getFirstName()) && customerDTO.getPassword().equals(customer.getPassword())){
 
                 return "redirect:customer/" + customer.getId();
 
@@ -52,7 +52,7 @@ public class CustomerController  {
 
         }
 
-        return "redirect:customer/1";
+        return "redirect:/health/1";
 
     }
 
