@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="style.css">
     <title>APP</title>
 </head>
-<body>
+<body><h1>Ola</h1>
 <div class="container" th:object="${customer}">
     <div class="row">
-        <h3 th:text="${customer.firstName} + ${customer.lastName}"></h3>
+        <h3 th:text="${customer.firstName} + ' ' + ${customer.lastName}"></h3>
     </div>
     <div class="row">
-        <a type="button" class="btn btn-success btn-block" th:href="">Health</a>
+        <button th:href="@{'/health/' + ${customer.id}}" type="button" class="btn btn-success btn-block">Health</button>
     </div>
     <div class="row">
         <button type="button" class="btn btn-primary btn-block">Cultural</button>
