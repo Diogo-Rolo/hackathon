@@ -51,7 +51,9 @@ public class CustomerController  {
             }
 
         }
-        return "www.google.com";
+
+        return "redirect:customer/1";
+
     }
 
     @RequestMapping(method = RequestMethod.GET, value = {"/", ""})
