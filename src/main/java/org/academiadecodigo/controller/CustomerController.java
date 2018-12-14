@@ -82,6 +82,25 @@ public class CustomerController  {
         return "redirect:/health/{id}";
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = {"cultural/{id}/next"})
+    public String culturalNext(Model model, @PathVariable Integer id){
+        Customer customer = customerService.getById(id);
+        customerService.nextCulturalChallenge(customer);
+        return "redirect:/cultural/{id}";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = {"social/{id}/next"})
+    public String socialNext(Model model, @PathVariable Integer id){
+        Customer customer = customerService.getById(id);
+        customerService.nextSocialChallenge(customer);
+        return "redirect:/social/{id}";
+    }
+
+
+
+
+
+
     @RequestMapping(method = RequestMethod.GET, value = {"/cultural/{id}"})
     public String cultural(Model model, @PathVariable Integer id) {
         Customer customer = new Customer();

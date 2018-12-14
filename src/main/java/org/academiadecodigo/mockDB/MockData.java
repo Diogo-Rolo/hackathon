@@ -69,39 +69,49 @@ public class MockData {
         return healthyChallengeMap.get(id);
     }
 
+    public SocialChallenge getSocialChallenge(int id) {
+        return socialChallengeMap.get(id);
+    }
+
 
     public void populateCulturalChallenge() {
         culturalChallenge1.setName("Cultural Challenge #1");
         culturalChallenge1.setDescription("Bohemian Rhapsody");
         culturalChallenge1.setLink("https://www.youtube.com/embed/mP0VHJYFOAU");
-        culturalChallengeMap.put(1,culturalChallenge1);
+        culturalChallenge1.setId(1);
+        culturalChallengeMap.put(culturalChallenge1.getId(),culturalChallenge1);
 
         culturalChallenge2.setName("Cultural Challenge #2");
         culturalChallenge2.setDescription("Fado na Baixa");
         culturalChallenge2.setLink("https://www.youtube.com/embed/WIleD7RVD1I");
-        culturalChallengeMap.put(2,culturalChallenge2);
+        culturalChallenge2.setId(2);
+        culturalChallengeMap.put(culturalChallenge2.getId(),culturalChallenge2);
     }
 
     public void populateHealthyChallenge() {
         healthyChallenge1.setName("Healthy Challenge #1");
         healthyChallenge1.setDescription("30 Minute Power Yoga Class");
         healthyChallenge1.setLink("https://www.youtube.com/embed/qy_oIKf1ByM");
-        healthyChallengeMap.put(1,healthyChallenge1);
+        healthyChallenge1.setId(1);
+        healthyChallengeMap.put(healthyChallenge1.getId(),healthyChallenge1);
 
         healthyChallenge2.setName("Healthy Challenge #2");
         healthyChallenge2.setDescription("Cook a nice chicken salad for yourself for a change!");
         healthyChallenge2.setLink("https://www.youtube.com/embed/NNQVM35goK8");
-        healthyChallengeMap.put(2,healthyChallenge2);
+        healthyChallenge2.setId(2);
+        healthyChallengeMap.put(healthyChallenge2.getId(),healthyChallenge2);
     }
 
     public void populateSocialChallenge() {
         socialChallenge1.setName("Social Challenge #1");
         socialChallenge1.setDescription("Schedule a coffee with your friends.");
-        socialChallengeMap.put(1,socialChallenge1);
+        socialChallenge1.setId(1);
+        socialChallengeMap.put(socialChallenge1.getId(),socialChallenge1);
 
         socialChallenge2.setName("Social Challenge #2");
         socialChallenge2.setDescription("Call a special person!");
-        socialChallengeMap.put(2,socialChallenge2);
+        socialChallenge2.setId(2);
+        socialChallengeMap.put(socialChallenge2.getId(),socialChallenge2);
     }
 
 

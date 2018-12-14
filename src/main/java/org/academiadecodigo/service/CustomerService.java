@@ -9,5 +9,6 @@ public interface CustomerService {
     Customer createCustomer(Customer customer);
     Customer nextCulturalChallenge(Customer customer);
     Customer nextHealthyChallenge(Customer customer);
+    Customer nextSocialChallenge(Customer customer);
     List<Customer> getAllCustomers();
 }

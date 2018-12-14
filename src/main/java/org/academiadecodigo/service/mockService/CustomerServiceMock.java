@@ -5,6 +5,7 @@ import org.academiadecodigo.mockDB.MockData;
 import org.academiadecodigo.model.CulturalChallenge;
 import org.academiadecodigo.model.Customer;
 import org.academiadecodigo.model.HealthyChallenge;
+import org.academiadecodigo.model.SocialChallenge;
 import org.academiadecodigo.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,17 +30,29 @@ public class CustomerServiceMock implements CustomerService {
 
     @Override
     public Customer nextCulturalChallenge(Customer customer) {
-        CulturalChallenge challenge = mockData.getCulturalChallenge((customer.getCulturalChallenge().getId())+1);
+        Integer currId = customer.getCulturalChallenge().getId();
+        CulturalChallenge challenge = mockData.getCulturalChallenge(currId + 1);
         customer.setCulturalChallenge(challenge);
         return customer;
     }
 
     @Override
     public Customer nextHealthyChallenge(Customer customer) {
-        HealthyChallenge challenge = mockData.getHealthyChallenge(2);
+        Integer currId = customer.getHealthyChallenge().getId();
+        HealthyChallenge challenge = mockData.getHealthyChallenge(currId +1);
         customer.setHealthyChallenge(challenge);
         return customer;
     }
+
+    @Override
+    public Customer nextSocialChallenge(Customer customer) {
+        Integer currId = customer.getSocialChallenge().getId();
+        SocialChallenge challenge = mockData.getSocialChallenge(currId +1);
+        customer.setSocialChallenge(challenge);
+        return customer;
+    }
+
+
 
     @Override
     public List<Customer> getAllCustomers() {
